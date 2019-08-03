@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FIX, curated coffee components</title>
-
     <link href="reset.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600" type="text/css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
@@ -19,6 +18,10 @@
     <meta name="salesforce-save-access-token" content="true">
     <meta name="salesforce-forgot-password-enabled" content="<?php echo getenv('SALESFORCE_FORGOT_PASSWORD_ENABLED');?>">
     <meta name="salesforce-self-register-enabled" content="<?php echo getenv('SALESFORCE_SELF_REGISTER_ENABLED');?>">
+    <meta name="salesforce-self-register-starturl-enabled" content="<?php echo getenv('SALESFORCE_SELF_REGISTER_STARTURL_ENABLED');?>">
+    <meta name="salesforce-server-starturl" content="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/services/oauth2/authorize?response_type=token&&
+client_id=<?php echo getenv('SALESFORCE_CLIENT_ID');?>&
+redirect_uri=https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/_callback.html&state=/">
     <meta name="salesforce-login-handler" content="onLogin">
     <meta name="salesforce-logout-handler" content="onLogout">
 	<link href="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
@@ -42,7 +45,6 @@
     <section class="textured-section">
       <h1>Curated Coffee Components</h1>
       
-
       <ul class="products">
         <li>
           <img class="product-image" src="images/products/071715_Heroku_3270-.jpg" alt="">
@@ -60,12 +62,9 @@
           <div class="product-button"><a id="chemex_link" class="btn btn-hot" href="#" onclick="SFIDWidget.login()">Login for more info</a></div>
         </li>
       </ul>
-
     </section>
     <section>
-
       <h1>Complete Brewing Kits</h1>
-
       <ul class="kits">
         <li>
           <img class="kit-image" src="images/kits/071715_Heroku_3338-Edit-.jpg" alt="">
@@ -88,16 +87,13 @@
           <h3 class="kit-name">The Cold Brew Kit</h3>
         </li>
       </ul>
-
     </section>
     <footer>
-
       <div class="trailer-logo">
         <img class="logo" src="images/fix-logotype.png" alt="Fix">
         <br>
         <span class="logo-text">Fine Coffee Kits</span>
       </div>
-
       <div class="trailer-links">
         <ul class="internal-links">
           <li><a href="https://heroku.github.io/fix">About</a></li>
@@ -119,14 +115,10 @@
             <span class="social-name">Instagram</span></a></li>
         </ul>
       </div>
-
     </footer>
 	
-
 	
 	<script>
-
-
 	function onLogin(identity) {
 		
 		var targetDiv = document.querySelector(SFIDWidget.config.target);	
@@ -156,11 +148,9 @@
 		var aero = document.getElementById("aero_link");
 		aero.href = "/datasheets/AeroPress-Instr-English-Rev.-D2.pdf";
 		aero.innerHTML = 'Datasheet';
-
 		var reactor = document.getElementById("reactor_link");
 		reactor.href = "/datasheets/Reactor_StovInst_EURO_EN.pdf";
 		reactor.innerHTML = 'Datasheet';
-
 		var chemex = document.getElementById("chemex_link");
 		chemex.href = "/datasheets/2014_ChemexBrewGuide.pdf";
 		chemex.innerHTML = 'Datasheet';
@@ -169,7 +159,6 @@
 	
 	
 	function showIdentityOverlay() {
-
 		var lightbox = document.createElement('div'); 
 	 	lightbox.className = "sfid-lightbox";
 	 	lightbox.id = "sfid-login-overlay";
@@ -191,15 +180,12 @@
 		
 		var content = document.createElement('div'); 
 	 	content.id = "sfid-content";
-
 		var community = document.createElement('a');
 		var commURL = document.querySelector('meta[name="salesforce-community"]').content;
 		community.href = commURL;
 		community.innerHTML = "Go to the Community";
 		community.setAttribute("style", "float:left");
 		content.appendChild(community);
-
-
 		var logout = document.createElement('a'); 
 	 	logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
 		logout.innerHTML = "logout";
@@ -215,7 +201,6 @@
 		t.appendChild(p);
 		
 		content.appendChild(t);
-
 		
 		wrapper.appendChild(content);
 		lightbox.appendChild(wrapper);
@@ -231,19 +216,14 @@
 		var aero = document.getElementById("aero_link");
 		aero.href = "#";
 		aero.innerHTML = 'Login for more info';
-
 		var reactor = document.getElementById("reactor_link");
 		reactor.href = "#";
 		reactor.innerHTML = 'Login for more info';
-
 		var chemex = document.getElementById("chemex_link");
 		chemex.href = "#";
 		chemex.innerHTML = 'Login for more info';
-
 	}
-
-
 	</script>
-	
+
   </body>
 </html>
